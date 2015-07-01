@@ -2,9 +2,9 @@
 
 namespace DecideTextColor
 {
-    class Program
+    internal static class DecideTextColor
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var colorInput = "";
             while (colorInput != "quit")
@@ -25,7 +25,7 @@ namespace DecideTextColor
                 var g = Convert.ToInt32(hexColor.Substring(2, 2), 16);
                 var b = Convert.ToInt32(hexColor.Substring(4, 2), 16);
 
-                var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+                var yiq = (r*299 + g*587 + b*114)/1000;
 
                 return yiq > 128 ? "Black" : "White";
             }
@@ -33,7 +33,6 @@ namespace DecideTextColor
             {
                 return "Invalid Input!";
             }
-
         }
     }
 }
